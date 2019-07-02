@@ -139,34 +139,34 @@ bf17 : butterfly port map(s(3),s(11),w(0),g1(12),g1(13));
 bf18 : butterfly port map(s(7),s(15),w(0),g1(14),g1(15));
 
 --second stage of butterfly's.
-bf21 : butterfly port map(g1(0),g1(2),w(0),g2(0),g2(1));
-bf22 : butterfly port map(g1(1),g1(3),w(2),g2(2),g2(3));
-bf23 : butterfly port map(g1(4),g1(6),w(0),g2(4),g2(5));
-bf24 : butterfly port map(g1(5),g1(7),w(2),g2(6),g2(7));
-bf25 : butterfly port map(g1(8),g1(10),w(0),g2(8),g2(9));
-bf26 : butterfly port map(g1(9),g1(11),w(2),g2(10),g2(11));
-bf27 : butterfly port map(g1(12),g1(14),w(0),g2(12),g2(13));
-bf28 : butterfly port map(g1(13),g1(15),w(2),g2(14),g2(15));
+bf21 : butterfly port map(g1(0),g1(2),w(0),g2(0),g2(2));
+bf22 : butterfly port map(g1(1),g1(3),w(2),g2(1),g2(3));
+bf23 : butterfly port map(g1(4),g1(6),w(0),g2(4),g2(6));
+bf24 : butterfly port map(g1(5),g1(7),w(2),g2(5),g2(7));
+bf25 : butterfly port map(g1(8),g1(10),w(0),g2(8),g2(10));
+bf26 : butterfly port map(g1(9),g1(11),w(2),g2(9),g2(11));
+bf27 : butterfly port map(g1(12),g1(14),w(0),g2(12),g2(14));
+bf28 : butterfly port map(g1(13),g1(15),w(2),g2(13),g2(15));
 
 --third stage of butterfly's.
-bf31 : butterfly port map(g2(0),g2(4),w(0),g3(0),g3(1));
-bf32 : butterfly port map(g2(1),g2(5),w(1),g3(2),g3(3));
-bf33 : butterfly port map(g2(2),g2(6),w(2),g3(4),g3(5));
-bf34 : butterfly port map(g2(3),g2(7),w(3),g3(6),g3(7));
-bf35 : butterfly port map(g2(8),g2(12),w(0),g3(8),g3(9));
-bf36 : butterfly port map(g2(9),g2(13),w(1),g3(10),g3(11));
-bf37 : butterfly port map(g2(10),g2(14),w(2),g3(12),g3(13));
-bf38 : butterfly port map(g2(11),g2(15),w(3),g3(14),g3(15));
+bf31 : butterfly port map(g2(0),g2(4),w(0),g3(0),g3(4));
+bf32 : butterfly port map(g2(1),g2(5),w(1),g3(1),g3(5));
+bf33 : butterfly port map(g2(2),g2(6),w(2),g3(2),g3(6));
+bf34 : butterfly port map(g2(3),g2(7),w(3),g3(3),g3(7));
+bf35 : butterfly port map(g2(8),g2(12),w(0),g3(8),g3(12));
+bf36 : butterfly port map(g2(9),g2(13),w(1),g3(9),g3(13));
+bf37 : butterfly port map(g2(10),g2(14),w(2),g3(10),g3(14));
+bf38 : butterfly port map(g2(11),g2(15),w(3),g3(11),g3(15));
 
 --fourth stage of butterfly's.
-bf41 : butterfly port map(g3(0),g3(8),w(0),y(0),y(1));
-bf42 : butterfly port map(g3(1),g3(9),w(1),y(2),y(3));
-bf43 : butterfly port map(g3(2),g3(10),w(2),y(4),y(5));
-bf44 : butterfly port map(g3(3),g3(11),w(3),y(6),y(7));
-bf45 : butterfly port map(g3(4),g3(12),w(4),y(8),y(9));
-bf46 : butterfly port map(g3(5),g3(13),w(5),y(10),y(11));
-bf47 : butterfly port map(g3(6),g3(14),w(6),y(12),y(13));
-bf48 : butterfly port map(g3(7),g3(15),w(7),y(14),y(15));
+bf41 : butterfly port map(g3(0),g3(8),w(0),y(0),y(8));
+bf42 : butterfly port map(g3(1),g3(9),w(1),y(1),y(9));
+bf43 : butterfly port map(g3(2),g3(10),w(2),y(2),y(10));
+bf44 : butterfly port map(g3(3),g3(11),w(3),y(3),y(11));
+bf45 : butterfly port map(g3(4),g3(12),w(4),y(4),y(12));
+bf46 : butterfly port map(g3(5),g3(13),w(5),y(5),y(13));
+bf47 : butterfly port map(g3(6),g3(14),w(6),y(6),y(14));
+bf48 : butterfly port map(g3(7),g3(15),w(7),y(7),y(15));
 
 
 end Behavioral;

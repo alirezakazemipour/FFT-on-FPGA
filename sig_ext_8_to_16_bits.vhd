@@ -50,7 +50,7 @@ begin
 sig_out_real <= X"00" & sig_in when sig_in(7) = '0' else
 X"FF" & sig_in ;
 
-sig_out <= (conv_std_logic_vector(sig_out_real,16) , "0000000000000000");
+sig_out <= (conv_std_logic_vector(sig_out_real,16) , X"0000");
 
 end Behavioral;
 
