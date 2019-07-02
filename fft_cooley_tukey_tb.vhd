@@ -45,6 +45,10 @@ ARCHITECTURE behavior OF fft_cooley_tukey_tb IS
     COMPONENT Parallel_FFT
     PORT(
          x : IN  signed_vector;
+		 debug1 : out comp_array;
+		 debug2 : out comp_array;
+		 debug3 : out comp_array;
+		 debug4 : out comp_array;
          y : OUT  comp_array
         );
     END COMPONENT;
@@ -54,7 +58,11 @@ ARCHITECTURE behavior OF fft_cooley_tukey_tb IS
    signal x : signed_vector := (others => X"00");
 
  	--Outputs
-   signal y : comp_array;
+   signal    y : comp_array;
+	signal	 debug1 :  comp_array;
+	signal	 debug2 :  comp_array;
+	signal	 debug3 :  comp_array;
+	signal	 debug4 :  comp_array;
    -- No clocks detected in port list. Replace <clock> below with 
    -- appropriate port name 
  
@@ -64,6 +72,10 @@ BEGIN
 	-- Instantiate the Unit Under Test (UUT)
    uut: Parallel_FFT PORT MAP (
           x => x,
+			 debug1 => debug1,
+			 debug2 => debug2,
+			 debug3 => debug3,
+			 debug4 => debug4,
           y => y
         );
 

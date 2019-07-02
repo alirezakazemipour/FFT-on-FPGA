@@ -36,6 +36,10 @@ use work.fft_package.all;
 
 entity Parallel_FFT is
 port ( x: in signed_vector;
+		 debug1 : out comp_array;
+		 debug2 : out comp_array;
+		 debug3 : out comp_array;
+		 debug4 : out comp_array;
 		 y : out comp_array);
 
 end Parallel_FFT;
@@ -139,7 +143,7 @@ bf130 : butterfly port map(s(23),s(55),w(0),g1(58),g1(59));
 bf131 : butterfly port map(s(15),s(47),w(0),g1(60),g1(61));
 bf132 : butterfly port map(s(31),s(63),w(0),g1(62),g1(63));
 
-
+debug1<=g1;
 
 --second stage of butterfly's.
 
@@ -176,7 +180,7 @@ bf230 : butterfly port map(g1(57),g1(59),w(2),g2(57),g2(59));
 bf231 : butterfly port map(g1(60),g1(62),w(0),g2(60),g2(62));
 bf232 : butterfly port map(g1(61),g1(63),w(2),g2(61),g2(63));
 
-
+debug2<=g2;
 
 --third stage of butterfly's.
 
@@ -213,6 +217,8 @@ bf330 : butterfly port map(g2(57),g2(61),w(1),g3(57),g3(61));
 bf331 : butterfly port map(g2(58),g2(62),w(2),g3(58),g3(62));
 bf332 : butterfly port map(g2(59),g2(63),w(3),g3(59),g3(63));
 
+debug3<=g3;
+
 ----fourth stage of butterfly's.
 bf41 : butterfly port map(g3(0),g3(8),w(0),g4(0),g4(8));
 bf42 : butterfly port map(g3(1),g3(9),w(1),g4(1),g4(9));
@@ -246,7 +252,9 @@ bf429 : butterfly port map(g3(52),g3(60),w(4),g4(52),g4(60));
 bf430 : butterfly port map(g3(53),g3(61),w(5),g4(53),g4(61));
 bf431 : butterfly port map(g3(54),g3(62),w(6),g4(54),g4(62));
 bf432 : butterfly port map(g3(55),g3(63),w(7),g4(55),g4(63));
---
+
+debug4<=g4;
+
 ----fifth stage of butterfly's.
 bf51 : butterfly port map(g4(0),g4(16),w(0),g5(0),g5(16));
 bf52 : butterfly port map(g4(1),g4(17),w(1),g5(1),g5(17));
