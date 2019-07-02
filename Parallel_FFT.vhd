@@ -21,6 +21,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_SIGNED.all;
 use IEEE.STD_LOGIC_ARITH.all;
+use std.textio.all;
 use work.fft_package.all;
 
 
@@ -61,10 +62,10 @@ end component;
 
 constant w : comp_array := (
 ("0100000000000000", "0000000000000000"),
-("0011101100100001", "1110011110000010"),
-("0010110101000001", "1101001010111111"),
-("0001100001111110", "1100010011011111"),
-("0000000000000000", "1100000000000000"),
+("0011111110110001", "0000011001000110"),
+("0011111011000101", "1111001110000100"),
+("0011110100111111", "1110110101101100"),
+("", "1100000000000000"),
 ("1110011110000010", "1100010011011111"),
 ("1101001010111111", "1101001010111111"),
 ("1100010011011111", "1110011110000010"),
@@ -137,24 +138,36 @@ end generate;
 end generate;
 
 --third stage of butterfly's.
-bf31 : butterfly port map(g2(0),g2(4),w(0),g3(0),g3(4));
-bf32 : butterfly port map(g2(1),g2(5),w(1),g3(1),g3(5));
-bf33 : butterfly port map(g2(2),g2(6),w(2),g3(2),g3(6));
-bf34 : butterfly port map(g2(3),g2(7),w(3),g3(3),g3(7));
-bf35 : butterfly port map(g2(8),g2(12),w(0),g3(8),g3(12));
-bf36 : butterfly port map(g2(9),g2(13),w(1),g3(9),g3(13));
-bf37 : butterfly port map(g2(10),g2(14),w(2),g3(10),g3(14));
-bf38 : butterfly port map(g2(11),g2(15),w(3),g3(11),g3(15));
+stage3: for i in 0 to 59 generate
+
+bf3i: butterfly port map(g2(i),g2(i+4),w(i mod 4),g3(i),g3(i+4));
+
+end generate;
 
 --fourth stage of butterfly's.
-bf41 : butterfly port map(g3(0),g3(8),w(0),y(0),y(8));
-bf42 : butterfly port map(g3(1),g3(9),w(1),y(1),y(9));
-bf43 : butterfly port map(g3(2),g3(10),w(2),y(2),y(10));
-bf44 : butterfly port map(g3(3),g3(11),w(3),y(3),y(11));
-bf45 : butterfly port map(g3(4),g3(12),w(4),y(4),y(12));
-bf46 : butterfly port map(g3(5),g3(13),w(5),y(5),y(13));
-bf47 : butterfly port map(g3(6),g3(14),w(6),y(6),y(14));
-bf48 : butterfly port map(g3(7),g3(15),w(7),y(7),y(15));
+
+stage4: for i in 0 to 55 generate
+
+bf4i: butterfly port map(g3(i),g3(i+8),w(i mod 8),g4(i),g4(i+8));
+
+end generate;
+
+--fifth stage of butterfly's.
+
+stage5: for i in 0 to 47 generate
+
+bf5i: butterfly port map(g4(i),g4(i+16),w(i mod 16),g5(i),g5(i+8));
+
+end generate;
+
+--sixth stage of butterfly's.
+
+stage6: for i in 0 to 32 generate
+
+bf6i: butterfly port map(g5(i),g5(i+32),w(i mod 32),y(i),y(i+32));
+
+end generate;
+
 
 
 end Behavioral;
