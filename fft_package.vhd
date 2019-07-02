@@ -11,6 +11,8 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 use IEEE.STD_LOGIC_SIGNED.all;
 use IEEE.STD_LOGIC_ARITH.all;
+use std.textio.all;
+use ieee.std_logic_textio.all;
 --use IEEE.numeric_std.all;
 
 package fft_package is
@@ -22,13 +24,15 @@ package fft_package is
  end record;
 
 type signed_vector is array ( 0 to 63) of signed(7 downto 0); --TODO make 63 generic
-
 type comp_array is array ( 0 to 63 ) of complex ;
+type comp_array2 is array ( 0 to 31 ) of complex ;
+--type Ram_Type is array(0 to 31) of complex;
 
 
 function add (signal n1,n2 : in complex) return complex;
 function sub (signal n1,n2 : in complex) return complex;
 function mult (signal n1,n2 : in complex) return complex;
+--function Init_TFs(FileName : in string) return Ram_Type ;
 
 end fft_package;
 
@@ -84,6 +88,23 @@ function mult (signal n1,n2 : in complex ) return complex is
 
     return prod; 
   end mult;
+  
+--function Init_TFs(FileName : in string) return Ram_Type is
+--
+--	File file1 : text is in FileName; 
+--	
+--	variable line1 : line; 
+--	variable RAM1 : Ram_Type; 
+--	
+--	begin
+--	for i in Ram_Type'range loop
+--	readline (file1, line1); 
+--	read (line1, RAM1(i));
+--	
+--	end loop; 
+--	return RAM1; 
+--	end function;
+  
 
  
 end fft_package;
