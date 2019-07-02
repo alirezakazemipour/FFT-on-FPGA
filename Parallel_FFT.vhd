@@ -211,31 +211,110 @@ bf328 : butterfly port map(g2(51),g2(55),w(3),g3(54),g3(55));
 bf329 : butterfly port map(g2(56),g2(60),w(0),g3(56),g3(57));
 bf330 : butterfly port map(g2(57),g2(61),w(1),g3(58),g3(59));
 bf331 : butterfly port map(g2(58),g2(62),w(2),g3(60),g3(61));
-bf332 : butterfly port map(g2(59),g2(63),w(3),g3(62),g3(63))
+bf332 : butterfly port map(g2(59),g2(63),w(3),g3(62),g3(63));
 
 ----fourth stage of butterfly's.
---
---stage4: for i in 0 to 55 generate
---
---bf4i: butterfly port map(g3(i),g3(i+8),w(i mod 8),g4(i),g4(i+8));
---
---end generate;
+bf41 : butterfly port map(g3(0),g3(8),w(0),g4(0),g4(1));
+bf42 : butterfly port map(g3(1),g3(9),w(1),g4(2),g4(3));
+bf43 : butterfly port map(g3(2),g3(10),w(2),g4(4),g4(5));
+bf44 : butterfly port map(g3(3),g3(11),w(4),g4(6),g4(7));
+bf45 : butterfly port map(g3(4),g3(12),w(5),g4(8),g4(9));
+bf46 : butterfly port map(g3(5),g3(13),w(6),g4(10),g4(11));
+bf47 : butterfly port map(g3(6),g3(14),w(7),g4(12),g4(13));
+bf48 : butterfly port map(g3(7),g3(15),w(3),g4(14),g4(15));
+bf49 : butterfly port map(g3(16),g3(24),w(0),g4(16),g4(17));
+bf410 : butterfly port map(g3(17),g3(25),w(1),g4(18),g4(19));
+bf411 : butterfly port map(g3(18),g3(26),w(2),g4(20),g4(21));
+bf412 : butterfly port map(g3(19),g3(27),w(3),g4(22),g4(23));
+bf413 : butterfly port map(g3(20),g3(28),w(4),g4(24),g4(25));
+bf414 : butterfly port map(g3(21),g3(29),w(5),g4(26),g4(27));
+bf415 : butterfly port map(g3(22),g3(30),w(6),g4(28),g4(29));
+bf416 : butterfly port map(g3(23),g3(31),w(7),g4(30),g4(31));
+bf417 : butterfly port map(g3(32),g3(40),w(0),g4(32),g4(33));
+bf418 : butterfly port map(g3(33),g3(41),w(1),g4(34),g4(35));
+bf419 : butterfly port map(g3(34),g3(42),w(2),g4(36),g4(37));
+bf420 : butterfly port map(g3(35),g3(43),w(3),g4(38),g4(39));
+bf421 : butterfly port map(g3(36),g3(44),w(4),g4(40),g4(41));
+bf422 : butterfly port map(g3(37),g3(45),w(5),g4(42),g4(43));
+bf423 : butterfly port map(g3(38),g3(46),w(6),g4(44),g4(45));
+bf424 : butterfly port map(g3(39),g3(47),w(7),g4(46),g4(47));
+bf425 : butterfly port map(g3(48),g3(56),w(0),g4(48),g4(49));
+bf426 : butterfly port map(g3(49),g3(53),w(1),g4(50),g4(51));
+bf427 : butterfly port map(g3(50),g3(54),w(2),g4(52),g4(53));
+bf428 : butterfly port map(g3(51),g3(55),w(3),g4(54),g4(55));
+bf429 : butterfly port map(g3(52),g3(60),w(4),g4(56),g4(57));
+bf430 : butterfly port map(g3(53),g3(61),w(5),g4(58),g4(59));
+bf431 : butterfly port map(g3(54),g3(62),w(6),g4(60),g4(61));
+bf432 : butterfly port map(g3(55),g3(63),w(7),g4(62),g4(63));
 --
 ----fifth stage of butterfly's.
---
---stage5: for i in 0 to 47 generate
---
---bf5i: butterfly port map(g4(i),g4(i+16),w(i mod 16),g5(i),g5(i+8));
---
---end generate;
---
+bf51 : butterfly port map(g4(0),g4(16),w(0),g5(0),g5(1));
+bf52 : butterfly port map(g4(1),g4(17),w(1),g5(2),g5(3));
+bf53 : butterfly port map(g4(2),g4(18),w(2),g5(4),g5(5));
+bf54 : butterfly port map(g4(3),g4(19),w(3),g5(6),g5(7));
+bf55 : butterfly port map(g4(4),g4(20),w(4),g5(8),g5(9));
+bf56 : butterfly port map(g4(5),g4(21),w(5),g5(10),g5(11));
+bf57 : butterfly port map(g4(6),g4(22),w(6),g5(12),g5(13));
+bf58 : butterfly port map(g4(7),g4(23),w(7),g5(14),g5(15));
+bf59 : butterfly port map(g4(8),g4(24),w(8),g5(16),g5(17));
+bf510 : butterfly port map(g4(9),g4(25),w(9),g5(18),g5(19));
+bf511 : butterfly port map(g4(10),g4(26),w(10),g5(20),g5(21));
+bf512 : butterfly port map(g4(11),g4(27),w(11),g5(22),g5(23));
+bf513 : butterfly port map(g4(12),g4(28),w(12),g5(24),g5(25));
+bf514 : butterfly port map(g4(13),g4(29),w(13),g5(26),g5(27));
+bf515 : butterfly port map(g4(14),g4(30),w(14),g5(28),g5(29));
+bf516 : butterfly port map(g4(15),g4(31),w(15),g5(30),g5(31));
+bf517 : butterfly port map(g4(32),g4(48),w(0),g5(32),g5(33));
+bf518 : butterfly port map(g4(33),g4(49),w(1),g5(34),g5(35));
+bf519 : butterfly port map(g4(34),g4(50),w(2),g5(36),g5(37));
+bf520 : butterfly port map(g4(35),g4(51),w(3),g5(38),g5(39));
+bf521 : butterfly port map(g4(36),g4(52),w(4),g5(40),g5(41));
+bf522 : butterfly port map(g4(37),g4(53),w(5),g5(42),g5(43));
+bf523 : butterfly port map(g4(38),g4(54),w(6),g5(44),g5(45));
+bf524 : butterfly port map(g4(39),g4(55),w(7),g5(46),g5(47));
+bf525 : butterfly port map(g4(40),g4(56),w(8),g5(48),g5(49));
+bf526 : butterfly port map(g4(41),g4(57),w(9),g5(50),g5(51));
+bf527 : butterfly port map(g4(42),g4(58),w(10),g5(52),g5(53));
+bf528 : butterfly port map(g4(43),g4(59),w(11),g5(54),g5(55));
+bf529 : butterfly port map(g4(44),g4(60),w(12),g5(56),g5(57));
+bf530 : butterfly port map(g4(45),g4(61),w(13),g5(58),g5(59));
+bf531 : butterfly port map(g4(46),g4(62),w(14),g5(60),g5(61));
+bf532 : butterfly port map(g4(47),g4(63),w(15),g5(62),g5(63));
+
 ----sixth stage of butterfly's.
---
---stage6: for i in 0 to 31 generate
---
---bf6i: butterfly port map(g5(i),g5(i+32),w(i mod 32),y(i),y(i+32));
---
---end generate;
+
+bf61 : butterfly port map(g5(0),g5(32),w(0),y(0),y(1));
+bf62 : butterfly port map(g5(1),g5(33),w(1),y(2),y(3));
+bf63 : butterfly port map(g5(2),g5(34),w(2),y(4),y(5));
+bf64 : butterfly port map(g5(3),g5(35),w(3),y(6),y(7));
+bf65 : butterfly port map(g5(4),g5(36),w(4),y(8),y(9));
+bf66 : butterfly port map(g5(5),g5(37),w(5),y(10),y(11));
+bf67 : butterfly port map(g5(6),g5(38),w(6),y(12),y(13));
+bf68 : butterfly port map(g5(7),g5(39),w(7),y(14),y(15));
+bf69 : butterfly port map(g5(8),g5(40),w(8),y(16),y(17));
+bf610 : butterfly port map(g5(9),g5(41),w(9),y(18),y(19));
+bf611 : butterfly port map(g5(10),g5(42),w(10),y(20),y(21));
+bf612 : butterfly port map(g5(11),g5(43),w(11),y(22),y(23));
+bf613 : butterfly port map(g5(12),g5(44),w(12),y(24),y(25));
+bf614 : butterfly port map(g5(13),g5(45),w(13),y(26),y(27));
+bf615 : butterfly port map(g5(14),g5(46),w(14),y(28),y(29));
+bf616 : butterfly port map(g5(15),g5(47),w(15),y(30),y(31));
+bf617 : butterfly port map(g5(16),g5(48),w(16),y(32),y(33));
+bf618 : butterfly port map(g5(17),g5(49),w(17),y(34),y(35));
+bf619 : butterfly port map(g5(18),g5(50),w(18),y(36),y(37));
+bf620 : butterfly port map(g5(19),g5(51),w(19),y(38),y(39));
+bf621 : butterfly port map(g5(20),g5(52),w(20),y(40),y(41));
+bf622 : butterfly port map(g5(21),g5(53),w(21),y(42),y(43));
+bf623 : butterfly port map(g5(22),g5(54),w(22),y(44),y(45));
+bf624 : butterfly port map(g5(23),g5(55),w(23),y(46),y(47));
+bf625 : butterfly port map(g5(24),g5(56),w(24),y(48),y(49));
+bf626 : butterfly port map(g5(25),g5(57),w(25),y(50),y(51));
+bf627 : butterfly port map(g5(26),g5(58),w(26),y(52),y(53));
+bf628 : butterfly port map(g5(27),g5(59),w(27),y(54),y(55));
+bf629 : butterfly port map(g5(28),g5(60),w(28),y(56),y(57));
+bf630 : butterfly port map(g5(29),g5(61),w(29),y(58),y(59));
+bf631 : butterfly port map(g5(30),g5(62),w(30),y(60),y(61));
+bf632 : butterfly port map(g5(31),g5(63),w(31),y(62),y(63));
 
 
 
