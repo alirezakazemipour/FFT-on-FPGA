@@ -50,22 +50,28 @@ end component;
 
 begin
 
-input0 : sig_ext_8_to_16_bits port map ( input_real(0), input_comp(0));
-input1 : sig_ext_8_to_16_bits port map ( input_real(1), input_comp(1));
-input2 : sig_ext_8_to_16_bits port map ( input_real(2), input_comp(2));
-input3 : sig_ext_8_to_16_bits port map ( input_real(3), input_comp(3));
-input4 : sig_ext_8_to_16_bits port map ( input_real(4), input_comp(4));
-input5 : sig_ext_8_to_16_bits port map ( input_real(5), input_comp(5));
-input6 : sig_ext_8_to_16_bits port map ( input_real(6), input_comp(6));
-input7 : sig_ext_8_to_16_bits port map ( input_real(7), input_comp(7));
-input8 : sig_ext_8_to_16_bits port map ( input_real(8), input_comp(8));
-input9 : sig_ext_8_to_16_bits port map ( input_real(9), input_comp(9));
-input10 : sig_ext_8_to_16_bits port map ( input_real(10), input_comp(10));
-input11 : sig_ext_8_to_16_bits port map ( input_real(11), input_comp(11));
-input12 : sig_ext_8_to_16_bits port map ( input_real(12), input_comp(12));
-input13 : sig_ext_8_to_16_bits port map ( input_real(13), input_comp(13));
-input14 : sig_ext_8_to_16_bits port map ( input_real(14), input_comp(14));
-input15 : sig_ext_8_to_16_bits port map ( input_real(15), input_comp(15));
+--input0 : sig_ext_8_to_16_bits port map ( input_real(0), input_comp(0));
+--input1 : sig_ext_8_to_16_bits port map ( input_real(1), input_comp(1));
+--input2 : sig_ext_8_to_16_bits port map ( input_real(2), input_comp(2));
+--input3 : sig_ext_8_to_16_bits port map ( input_real(3), input_comp(3));
+--input4 : sig_ext_8_to_16_bits port map ( input_real(4), input_comp(4));
+--input5 : sig_ext_8_to_16_bits port map ( input_real(5), input_comp(5));
+--input6 : sig_ext_8_to_16_bits port map ( input_real(6), input_comp(6));
+--input7 : sig_ext_8_to_16_bits port map ( input_real(7), input_comp(7));
+--input8 : sig_ext_8_to_16_bits port map ( input_real(8), input_comp(8));
+--input9 : sig_ext_8_to_16_bits port map ( input_real(9), input_comp(9));
+--input10 : sig_ext_8_to_16_bits port map ( input_real(10), input_comp(10));
+--input11 : sig_ext_8_to_16_bits port map ( input_real(11), input_comp(11));
+--input12 : sig_ext_8_to_16_bits port map ( input_real(12), input_comp(12));
+--input13 : sig_ext_8_to_16_bits port map ( input_real(13), input_comp(13));
+--input14 : sig_ext_8_to_16_bits port map ( input_real(14), input_comp(14));
+--input15 : sig_ext_8_to_16_bits port map ( input_real(15), input_comp(15));
+
+toComplex: for i in 0 to 63 generate
+
+inputi:sig_ext_8_to_16_bits port map ( input_real(i), input_comp(i));
+end generate;
+
 
 
 
