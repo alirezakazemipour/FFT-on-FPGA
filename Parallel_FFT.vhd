@@ -79,7 +79,7 @@ constant w : comp_array := (
 );
 
 
-signal s, g1, g2, g3 : comp_array := ( others => ("0000000000000000","0000000000000000"));
+signal s, g1, g2, g3, g4, g5 : comp_array := ( others => ("0000000000000000","0000000000000000"));
 
 begin
 
@@ -87,66 +87,54 @@ begin
 
 sixteen_bits_complex_transform : real_input_to_complex port map(x, s);
 
-----first stage of butterfly's.
---bf11 : butterfly port map(s(0),s(8),w(0),g1(0),g1(8));
---bf12 : butterfly port map(s(1),s(9),w(1),g1(1),g1(9));
---bf13 : butterfly port map(s(2),s(10),w(2),g1(2),g1(10));
---bf14 : butterfly port map(s(3),s(11),w(3),g1(3),g1(11));
---bf15 : butterfly port map(s(4),s(12),w(4),g1(4),g1(12));
---bf16 : butterfly port map(s(5),s(13),w(5),g1(5),g1(13));
---bf17 : butterfly port map(s(6),s(14),w(6),g1(6),g1(14));
---bf18 : butterfly port map(s(7),s(15),w(7),g1(7),g1(15));
---
-----second stage of butterfly's.
---bf21 : butterfly port map(g1(0),g1(4),w(0),g2(0),g2(4));
---bf22 : butterfly port map(g1(1),g1(5),w(2),g2(1),g2(5));
---bf23 : butterfly port map(g1(2),g1(6),w(4),g2(2),g2(6));
---bf24 : butterfly port map(g1(3),g1(7),w(6),g2(3),g2(7));
---bf25 : butterfly port map(g1(8),g1(12),w(0),g2(8),g2(12));
---bf26 : butterfly port map(g1(9),g1(13),w(2),g2(9),g2(13));
---bf27 : butterfly port map(g1(10),g1(14),w(4),g2(10),g2(14));
---bf28 : butterfly port map(g1(11),g1(15),w(6),g2(11),g2(15));
---
-----third stage of butterfly's.
---bf31 : butterfly port map(g2(0),g2(2),w(0),g3(0),g3(2));
---bf32 : butterfly port map(g2(1),g2(3),w(4),g3(1),g3(3));
---bf33 : butterfly port map(g2(4),g2(6),w(0),g3(4),g3(6));
---bf34 : butterfly port map(g2(5),g2(7),w(4),g3(5),g3(7));
---bf35 : butterfly port map(g2(8),g2(10),w(0),g3(8),g3(10));
---bf36 : butterfly port map(g2(9),g2(11),w(4),g3(9),g3(11));
---bf37 : butterfly port map(g2(12),g2(14),w(0),g3(12),g3(14));
---bf38 : butterfly port map(g2(13),g2(15),w(4),g3(13),g3(15));
---
-----fourth stage of butterfly's.
---bf41 : butterfly port map(g3(0),g3(1),w(0),y(0),y(8));
---bf42 : butterfly port map(g3(2),g3(3),w(0),y(4),y(12));
---bf43 : butterfly port map(g3(4),g3(5),w(0),y(2),y(10));
---bf44 : butterfly port map(g3(6),g3(7),w(0),y(6),y(14));
---bf45 : butterfly port map(g3(8),g3(9),w(0),y(1),y(9));
---bf46 : butterfly port map(g3(10),g3(11),w(0),y(5),y(13));
---bf47 : butterfly port map(g3(12),g3(13),w(0),y(3),y(11));
---bf48 : butterfly port map(g3(14),g3(15),w(0),y(7),y(15));
-
-
 --first stage of butterfly's.
-bf11 : butterfly port map(s(0),s(8),w(0),g1(0),g1(1));
-bf12 : butterfly port map(s(4),s(12),w(0),g1(2),g1(3));
-bf13 : butterfly port map(s(2),s(10),w(0),g1(4),g1(5));
-bf14 : butterfly port map(s(6),s(14),w(0),g1(6),g1(7));
-bf15 : butterfly port map(s(1),s(9),w(0),g1(8),g1(9));
-bf16 : butterfly port map(s(5),s(13),w(0),g1(10),g1(11));
-bf17 : butterfly port map(s(3),s(11),w(0),g1(12),g1(13));
-bf18 : butterfly port map(s(7),s(15),w(0),g1(14),g1(15));
+bf11 : butterfly port map(s(0),s(32),w(0),g1(0),g1(1));
+bf12 : butterfly port map(s(16),s(48),w(0),g1(2),g1(3));
+bf13 : butterfly port map(s(8),s(40),w(0),g1(4),g1(5));
+bf14 : butterfly port map(s(24),s(56),w(0),g1(6),g1(7));
+bf15 : butterfly port map(s(4),s(36),w(0),g1(8),g1(9));
+bf16 : butterfly port map(s(20),s(52),w(0),g1(10),g1(11));
+bf17 : butterfly port map(s(12),s(44),w(0),g1(12),g1(13));
+bf18 : butterfly port map(s(28),s(60),w(0),g1(14),g1(15));
+bf19 : butterfly port map(s(2),s(34),w(0),g1(16),g1(17));
+bf110 : butterfly port map(s(18),s(50),w(0),g1(18),g1(19));
+bf111 : butterfly port map(s(10),s(42),w(0),g1(20),g1(21));
+bf112 : butterfly port map(s(26),s(58),w(0),g1(22),g1(23));
+bf113 : butterfly port map(s(6),s(38),w(0),g1(24),g1(25));
+bf114 : butterfly port map(s(22),s(54),w(0),g1(26),g1(27));
+bf115 : butterfly port map(s(14),s(46),w(0),g1(28),g1(29));
+bf116 : butterfly port map(s(30),s(62),w(0),g1(30),g1(31));
+bf117 : butterfly port map(s(1),s(33),w(0),g1(32),g1(33));
+bf118 : butterfly port map(s(17),s(49),w(0),g1(34),g1(35));
+bf119 : butterfly port map(s(9),s(41),w(0),g1(36),g1(37));
+bf120 : butterfly port map(s(25),s(57),w(0),g1(38),g1(39));
+bf121 : butterfly port map(s(5),s(37),w(0),g1(40),g1(41));
+bf122 : butterfly port map(s(21),s(53),w(0),g1(42),g1(43));
+bf123 : butterfly port map(s(13),s(45),w(0),g1(44),g1(45));
+bf124 : butterfly port map(s(29),s(61),w(0),g1(46),g1(47));
+bf125 : butterfly port map(s(3),s(35),w(0),g1(48),g1(49));
+bf126 : butterfly port map(s(19),s(51),w(0),g1(50),g1(51));
+bf127 : butterfly port map(s(11),s(43),w(0),g1(52),g1(53));
+bf128 : butterfly port map(s(27),s(59),w(0),g1(54),g1(55));
+bf129 : butterfly port map(s(7),s(39),w(0),g1(56),g1(57));
+bf130 : butterfly port map(s(23),s(55),w(0),g1(58),g1(59));
+bf131 : butterfly port map(s(15),s(47),w(0),g1(60),g1(61));
+bf132 : butterfly port map(s(31),s(63),w(0),g1(62),g1(63));
+
+
 
 --second stage of butterfly's.
-bf21 : butterfly port map(g1(0),g1(2),w(0),g2(0),g2(2));
-bf22 : butterfly port map(g1(1),g1(3),w(2),g2(1),g2(3));
-bf23 : butterfly port map(g1(4),g1(6),w(0),g2(4),g2(6));
-bf24 : butterfly port map(g1(5),g1(7),w(2),g2(5),g2(7));
-bf25 : butterfly port map(g1(8),g1(10),w(0),g2(8),g2(10));
-bf26 : butterfly port map(g1(9),g1(11),w(2),g2(9),g2(11));
-bf27 : butterfly port map(g1(12),g1(14),w(0),g2(12),g2(14));
-bf28 : butterfly port map(g1(13),g1(15),w(2),g2(13),g2(15));
+stage2: for i in 0 to 61 generate
+
+stage2_cond1: if i mod 2 = 0 generate
+bf2i: butterfly port map(g1(i),g1(i+2),w(0),g2(i),g2(i+2));
+end generate;
+
+stage2_cond2: if i mod 2 = 0 generate
+bf2i: butterfly port map(g1(i),g1(i+2),w(2),g2(i),g2(i+2));
+end generate;
+
+end generate;
 
 --third stage of butterfly's.
 bf31 : butterfly port map(g2(0),g2(4),w(0),g3(0),g3(4));

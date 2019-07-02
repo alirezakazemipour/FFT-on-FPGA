@@ -21,9 +21,9 @@ package fft_package is
     i        : std_logic_vector( 15 downto 0);
  end record;
 
-type signed_vector is array ( 0 to 15) of signed(7 downto 0);
+type signed_vector is array ( 0 to 63) of signed(7 downto 0); --TODO make 63 generic
 
-type comp_array is array ( 0 to 15 ) of complex ;
+type comp_array is array ( 0 to 63 ) of complex ;
 
 
 function add (signal n1,n2 : in complex) return complex;
