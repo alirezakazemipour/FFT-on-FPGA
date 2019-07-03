@@ -41,16 +41,16 @@ end sig_ext_8_to_16_bits;
 
 architecture Behavioral of sig_ext_8_to_16_bits is
 
-signal sig_out_real : signed(31 downto 0);
+signal sig_out_real : signed(15 downto 0);
 
 
 begin
 
 
-sig_out_real <= X"000000" & sig_in when sig_in(7) = '0' else
-X"FFFFFF" & sig_in ;
+sig_out_real <= X"00" & sig_in when sig_in(7) = '0' else
+X"FF" & sig_in ;
 
-sig_out <= (conv_std_logic_vector(sig_out_real,32) , X"00000000");
+sig_out <= (conv_std_logic_vector(sig_out_real,16) , X"0000");
 
 end Behavioral;
 
