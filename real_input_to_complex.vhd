@@ -69,12 +69,12 @@ begin
 --input14 : sig_ext_8_to_16_bits port map ( input_real(14), input_comp(14));
 --input15 : sig_ext_8_to_16_bits port map ( input_real(15), input_comp(15));
 
-toComplex: for i in 0 to 63 generate
+toComplex: for i in 0 to 7 generate
 
 inputi:sig_ext_8_to_16_bits port map ( input_real(i), input_comp(i));
 end generate;
 
-
+--
 
 
 

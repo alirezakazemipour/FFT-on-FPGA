@@ -24,9 +24,9 @@ package fft_package is
  end record;
  
 
-type signed_vector is array ( 0 to 63) of real; --TODO make 63 generic
-type comp_array is array ( 0 to 63 ) of complex ;
-type comp_array2 is array ( 0 to 31 ) of complex ;
+type signed_vector is array ( 0 to 7) of real; --TODO make 63 generic
+type comp_array is array ( 0 to 7 ) of complex ;
+type comp_array2 is array ( 0 to 3 ) of complex ;
 
 
 function add (signal n1,n2 : in complex) return complex;
