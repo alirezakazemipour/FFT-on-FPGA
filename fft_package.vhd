@@ -9,24 +9,24 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
-library ieee_proposed;
-use ieee_proposed.float_pkg.all; 
+use IEEE.STD_LOGIC_SIGNED.all;
+use IEEE.STD_LOGIC_ARITH.all;
 use std.textio.all;
 use ieee.std_logic_textio.all;
-use IEEE.numeric_std.all;
+--use IEEE.numeric_std.all;
 
 package fft_package is
 
  type complex is
   record
-    r        : real;
-    i        : real;
+    r        : std_logic_vector( 15 downto 0);
+    i        : std_logic_vector( 15 downto 0);
  end record;
- 
 
-type signed_vector is array ( 0 to 63) of real; --TODO make 63 generic
+type signed_vector is array ( 0 to 63) of signed(7 downto 0); --TODO make 63 generic
 type comp_array is array ( 0 to 63 ) of complex ;
 type comp_array2 is array ( 0 to 31 ) of complex ;
+--type Ram_Type is array(0 to 31) of complex;
 
 
 function add (signal n1,n2 : in complex) return complex;
@@ -71,13 +71,13 @@ function mult (signal n1,n2 : in complex ) return complex is
 	 
   begin
   
-	-- prod_aux_r := (signed(n1.r * n2.r) - signed(n1.i * n2.i));
-	--prod_aux_r := signed(signed(n1.r) * signed(n2.r)) - signed(signed(n1.i) * signed(n2.i));
-	 prod.r := (n1.r * n2.r) - (n1.i * n2.i);
+	 prod_aux_r := (signed(n1.r * n2.r) - signed(n1.i * n2.i));
+	 prod.r := conv_std_logic_vector(prod_aux_r(29 downto 14),16); --(29 downto 14)
 	 
-
-	 --prod_aux_i := signed(signed(n1.r) * signed(n2.i)) + signed(signed(n1.i) * signed(n2.r)) ;
-	 prod.i := (n1.r * n2.i) + (n1.i * n2.r);
+	 prod_aux_i1 :=	signed(n1.r * n2.i);
+	 prod_aux_i2 :=	signed(n1.i * n2.r);
+	 prod_aux_i := (prod_aux_i1 + prod_aux_i2) ;
+	 prod.i := conv_std_logic_vector(prod_aux_i(29 downto 14),16); --(29 downto 14)
 
 
     return prod; 

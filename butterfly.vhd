@@ -52,9 +52,7 @@ q1	<= mult(c2,w);
 g1 <= add(c1,q1);
 g2  <= sub(c1,q1);
 
---g1 <= add(c1,c2);
---q1<= sub(c1,c2);
---g2 <= mult(q1,w);
+
 
 end Behavioral;
 
