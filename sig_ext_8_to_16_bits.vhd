@@ -19,13 +19,15 @@
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.STD_LOGIC_SIGNED.all;
-use IEEE.STD_LOGIC_ARITH.all;
+--use IEEE.STD_LOGIC_SIGNED.all;
+--use IEEE.STD_LOGIC_ARITH.all;
 use work.fft_package.all;
+library ieee_proposed;
+use ieee_proposed.float_pkg.all; 
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx primitives in this code.
@@ -34,7 +36,7 @@ use work.fft_package.all;
 
 entity sig_ext_8_to_16_bits is
 
-port ( sig_in : in signed(7 downto 0);
+port ( sig_in : in real;
 		 sig_out : out complex );
 
 end sig_ext_8_to_16_bits;
@@ -47,10 +49,10 @@ signal sig_out_real : signed(15 downto 0);
 begin
 
 
-sig_out_real <= X"00" & sig_in when sig_in(7) = '0' else
-X"FF" & sig_in ;
+--sig_out_real <= X"00" & sig_in when sig_in(7) = '0' else
+--X"FF" & sig_in ;
 
-sig_out <= (conv_std_logic_vector(sig_out_real,16) , X"0000");
+sig_out <= (sig_in , 0.0);
 
 end Behavioral;
 

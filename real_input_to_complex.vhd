@@ -19,14 +19,16 @@
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.STD_LOGIC_SIGNED.all;
-use IEEE.STD_LOGIC_ARITH.all;
+--use IEEE.STD_LOGIC_SIGNED.all;
+--use IEEE.STD_LOGIC_ARITH.all;
 use work.fft_package.all;
 
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
+use IEEE.NUMERIC_STD.ALL;
+library ieee_proposed;
+use ieee_proposed.float_pkg.all; 
 
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx primitives in this code.
@@ -43,7 +45,7 @@ end real_input_to_complex;
 architecture Behavioral of real_input_to_complex is
 
 component sig_ext_8_to_16_bits is 
-port ( sig_in : in signed (7 downto 0);
+port ( sig_in : in real;
 		 sig_out : out complex);
 		 
 end component;

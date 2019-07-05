@@ -49,13 +49,14 @@ ARCHITECTURE behavior OF fft_cooley_tukey_tb IS
 		 debug2 : out comp_array;
 		 debug3 : out comp_array;
 		 debug4 : out comp_array;
+		 debug5 : out comp_array;
          y : OUT  comp_array
         );
     END COMPONENT;
     
 
    --Inputs
-   signal x : signed_vector := (others => X"00");
+   signal x : signed_vector := (others => 0.0);
 
  	--Outputs
    signal    y : comp_array;
@@ -63,6 +64,7 @@ ARCHITECTURE behavior OF fft_cooley_tukey_tb IS
 	signal	 debug2 :  comp_array;
 	signal	 debug3 :  comp_array;
 	signal	 debug4 :  comp_array;
+	signal	 debug5 :  comp_array;
    -- No clocks detected in port list. Replace <clock> below with 
    -- appropriate port name 
  
@@ -76,6 +78,7 @@ BEGIN
 			 debug2 => debug2,
 			 debug3 => debug3,
 			 debug4 => debug4,
+			 debug5 => debug5,
           y => y
         );
 
@@ -108,70 +111,70 @@ BEGIN
 --		X"50"
 --		);
 
-		x<=(X"01",
-		X"02",
-		X"03",
-		X"04",
-		X"05",
-		X"06",
-		X"07",
-		X"00",
-		X"00",
-		X"00",
-		X"00",
-		X"00",
-		X"00",
-		X"00",
-		X"00",
-		X"00",
-		X"00",
-		X"00",
-		X"00",
-		X"00",
-		X"00",
-		X"00",
-		X"00",
-		X"00",
-		X"00",
-		X"00",
-		X"00",
-		X"00",
-		X"00",
-		X"00",
-		X"00",
-		X"00",
-		X"00",
-		X"00",
-		X"00",
-		X"00",
-		X"00",
-		X"00",
-		X"00",
-		X"00",
-		X"00",
-		X"00",
-		X"00",
-		X"00",
-		X"00",
-		X"00",
-		X"00",
-		X"00",
-		X"00",
-		X"00",
-		X"00",
-		X"00",
-		X"00",
-		X"00",
-		X"00",
-		X"00",
-		X"00",
-		X"00",
-		X"00",
-		X"00",
-		X"00",
-		X"00",
-		X"00",
-		X"00"
+		x<=(1.0,
+		2.0,
+		3.0,
+		4.0,
+		5.0,
+		6.0,
+		7.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0
 		);
 --
       wait;
